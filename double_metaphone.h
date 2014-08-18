@@ -48,9 +48,9 @@ namespace dm
     const auto length = static_cast<int>(str.length());
     const auto last = length - 1;
 
-    auto IsVowel = [&](size_t at)
+    auto IsVowel = [&](int at)
     {
-      if (at < length)
+      if (at >= 0 && at < length)
         switch (str[at])
       {
         case 'A':
