@@ -98,9 +98,14 @@ namespace dm
     };
 
     /* uppercase string */
+    bool other_latin_prefix = false;
     for (auto& ch : str)
-      if (ch >= 'a' && ch <= 'z')
-        ch -= 'a' - 'A';
+    {
+      if ((ch >= 'a' && ch <= 'z') ||
+          (other_latin_prefix && ch >= '\xa0' && ch <= '\xbe'))
+        ch -= 0x20;
+      other_latin_prefix = ch == '\xc3';
+    }
 
     /* pad original so we can index beyond end */
     str += "     ";
@@ -1015,7 +1020,29 @@ namespace dm
           else
             inc = 1;
           break;
-          
+
+        case '\xc3':
+          /* UTF-8 Latin */
+          switch (str[current + 1])
+          {
+            case '\x87':
+              /* Ç */
+              metaph1 = "S";
+              metaph2 = "S";
+              inc = 2;
+              break;
+            case '\x91':
+              /* 'Ñ' */
+              metaph1 = "N";
+              metaph2 = "N";
+              inc = 2;
+              break;
+            default:
+              inc = 1;
+              break;
+          }
+          break;
+
         default:
           inc = 1;
       }

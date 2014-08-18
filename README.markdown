@@ -86,6 +86,7 @@ Design
 The main differences over similar implementations:
 
 * Standard C++11 with modern idioms like namespaces, lambdas, `std::string` and `std::pair`.
+* Support for UTF-8 input.
 * Callback API for phonetic key parts and their corresponding ranges in the original word.
 * Each key part is generally either all vowels or all consonants.
 * Tuned for speed.

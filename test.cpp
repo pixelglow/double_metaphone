@@ -1228,7 +1228,11 @@ const char* tests[][3] =
   {"wachtler","AKTLR","FKTLR"},
   {"wechsler","AKSLR","FKSLR"},
   {"weikersheim","AKRSM","FKRSM"},
-  {"zhao","J","J"}
+  {"zhao","J","J"},
+  {u8"Çelik", "SLK", "SLK"},
+  {u8"Curaçao", "KRS", "KRS"},
+  {u8"Iñaki", "ANK", "ANK"},
+  {u8"Iruña", "ARN", "ARN"}
 };
 
 int main()
