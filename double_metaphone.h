@@ -97,8 +97,10 @@ namespace dm
       return false;
     };
 
+    /* uppercase string */
     for (auto& ch : str)
-      ch = ::toupper(ch);
+      if (ch >= 'a' && ch <= 'z')
+        ch -= 'a' - 'A';
 
     /* pad original so we can index beyond end */
     str += "     ";
