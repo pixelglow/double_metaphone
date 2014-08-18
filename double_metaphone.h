@@ -66,13 +66,12 @@ namespace dm
 
     auto SlavoGermanic = [&]()
     {
-      return str.find('W') != std::string::npos ||
-      str.find('K') != std::string::npos ||
-      str.find("CZ") != std::string::npos ||
-      str.find("WITZ") != std::string::npos;
+      return str.find_first_of("WK") != std::string::npos ||
+        str.find("CZ") != std::string::npos ||
+        str.find("WITZ") != std::string::npos;
     };
 
-    auto StringAt = [&](int start, size_t len, const std::initializer_list<const char*>& sstrings)
+    auto StringAt = [&](int start, size_t len, std::initializer_list<const char*> sstrings)
     {
       if (start >= 0 && start < length)
       {
@@ -85,7 +84,7 @@ namespace dm
       return false;
     };
 
-    auto CharAt = [&](int start, const std::initializer_list<char>& cchars)
+    auto CharAt = [&](int start, std::initializer_list<char> cchars)
     {
       if (start >= 0 && start < length)
       {
@@ -108,7 +107,7 @@ namespace dm
     }
 
     /* pad original so we can index beyond end */
-    str += "     ";
+    str.append(5, ' ');
 
     /* skip these when at start of word */
     if (StringAt(0, 2, {"GN", "KN", "PN", "WR", "PS"}))
@@ -597,7 +596,7 @@ namespace dm
             /* spanish pron. of e.g. 'bajador' */
             if (IsVowel(current - 1)
                 && !SlavoGermanic()
-                && (str[current + 1] == 'A' || str[current + 1] == 'O'))
+                && (CharAt(current + 1, {'A', 'O'})))
             {
               metaph1 = "J";
               metaph2 = "H";
