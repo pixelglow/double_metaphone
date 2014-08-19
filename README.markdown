@@ -94,13 +94,11 @@ The main differences over similar implementations:
 Copyright
 ---------
 
-Copyright (c) 1998, 1999, Lawrence Philips.
-
-Slightly modified by Kevin Atkinson to fix several bugs and to allow it to give back more than 4 characters.
-
 Copyright (c) 2014, Pixelglow Software. All rights reserved.
 
-This version is derived from [Kevin Atkinson's](http://aspell.net/metaphone/dmetaph.cpp) version, which is in turn derived from Lawrence Philips' original version. The tests are based on the data from [Stephen Woodbridge's](http://swoodbridge.com/DoubleMetaPhone/surnames.txt) version.
+Original is copyright (c) 1998, 1999, [Lawrence Philips](http://www.drdobbs.com/the-double-metaphone-search-algorithm/184401251?pgno=2). Slightly modified by [Kevin Atkinson](http://aspell.net/metaphone/dmetaph.cpp) to fix several bugs and to allow it to give back more than 4 characters.
+
+Tests are based on data from [Stephen Woodbridge's](http://swoodbridge.com/DoubleMetaPhone/surnames.txt) version.
 
 License
 -------

@@ -1,14 +1,12 @@
 //
 //  double_metaphone.h
 //
-//  Created by Glen Low on 14/08/14.
+//  Copyright (c) 2014, Pixelglow Software. All rights reserved.
 //
-//  Copyright (c) 1998, 1999, Lawrence Philips.
-//
+//  Original is copyright (c) 1998, 1999, Lawrence Philips.
 //  Slightly modified by Kevin Atkinson to fix several bugs and
 //  to allow it to give back more than 4 characters.
 //
-//  Copyright (c) 2014, Pixelglow Software. All rights reserved.
 
 //  Redistribution and use in source and binary forms, with or without modification,
 //  are permitted provided that the following conditions are met:
