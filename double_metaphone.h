@@ -40,15 +40,15 @@ namespace dm
 {
   template <typename F> inline void double_metaphone(std::string str, F callback)
   {
-    auto current = 0;
+    size_t current = 0;
 
     /* we need the real length and last prior to padding */
-    const auto length = static_cast<int>(str.length());
+    const auto length = str.length();
     const auto last = length - 1;
 
-    auto IsVowel = [&](int at)
+    auto IsVowel = [&](size_t at)
     {
-      if (at >= 0 && at < length)
+      if (at < length)
         switch (str[at])
       {
         case 'A':
@@ -69,9 +69,9 @@ namespace dm
         str.find("WITZ") != std::string::npos;
     };
 
-    auto StringAt = [&](int start, size_t len, std::initializer_list<const char*> sstrings)
+    auto StringAt = [&](size_t start, size_t len, std::initializer_list<const char*> sstrings)
     {
-      if (start >= 0 && start < length)
+      if (start < length)
       {
         auto strStart = str.begin() + start;
         auto strFinish = strStart + len;
@@ -82,9 +82,9 @@ namespace dm
       return false;
     };
 
-    auto CharAt = [&](int start, std::initializer_list<char> cchars)
+    auto CharAt = [&](size_t start, std::initializer_list<char> cchars)
     {
-      if (start >= 0 && start < length)
+      if (start < length)
       {
         auto ch = str[start];
         for (auto cchar : cchars)
@@ -1054,7 +1054,7 @@ namespace dm
 
     // compose results from callback
     double_metaphone(std::move(str),
-                     [&result](const char* metaph1, const char* metaph2, int start, int len)
+                     [&result](const char* metaph1, const char* metaph2, size_t start, size_t len)
                      {
                        if (metaph1)
                          result.first += metaph1;
