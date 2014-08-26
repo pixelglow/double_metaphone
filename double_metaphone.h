@@ -842,7 +842,7 @@ namespace dm
             /* else */
             metaph1 = "SK";
             metaph2 = "SK";
-            inc = IsVowel(current + 2) ? 2 : 3;
+            inc = IsVowel(current + 2) || current + 2 >= length ? 2 : 3;
             break;
           }
 
